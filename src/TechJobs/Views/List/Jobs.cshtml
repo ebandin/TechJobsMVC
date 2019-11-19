@@ -1,7 +1,20 @@
-﻿<h1>@ViewBag.title</h1>
+<h1>@ViewBag.title</h1>
 
 <h3>@ViewBag.jobs.Count Result(s)</h3>
 
-@{ 
-    // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
+@if (ViewBag.jobs != null)
+{
+    foreach (Dictionary<string, string> jobs in ViewBag.jobs)
+    {
+    <table class="job-listing">
+        @foreach (KeyValuePair<string, string>job in jobs)
+            {
+            <tr>
+                <th>@job.Key.Substring(0, 1).ToUpper()@job.Key.Substring(1, job.Key.Length - 1):</th>
+                <td><a asp-controller="List" asp-action="Jobs" asp-route-column="@job.Key" asp-route-value="@job.Value">@job.Value</a></td>
+            </tr>
+            }
+    </table>
+    }
+
 }
