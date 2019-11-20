@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+// git hub test
 namespace TechJobs
 {
-    public class Startup
+    public class Startup 
     {
         public Startup(IHostingEnvironment env)
         {
