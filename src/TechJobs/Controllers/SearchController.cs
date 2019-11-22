@@ -21,7 +21,14 @@ namespace TechJobs.Controllers
 
             if (searchType == "all")
             {
-                ViewBag.Jobs = JobData.FindByValue(searchTerm);
+                if (string.IsNullOrEmpty(searchTerm))
+                {
+                    ViewBag.Jobs = JobData.FindByValue(" ");
+                }
+                else
+                {
+                    ViewBag.Jobs = JobData.FindByValue(searchTerm);
+                }
             }
             else
             {

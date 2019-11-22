@@ -67,6 +67,10 @@ namespace TechJobs.Models
                         // Finding one field in a job that matches is sufficient
                         break;
                     }
+                    else
+                    {
+                        break; 
+                    }
                 }
             }
 
@@ -89,12 +93,16 @@ namespace TechJobs.Models
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                string aValue = row[column];
+                //foreach (string key in row.Keys)
+                //{
+                    string aValue = row[column];
 
-                if (aValue.ToLower().Contains(value.ToLower()))
-                {
-                    jobs.Add(row);
-                }
+                    if (aValue.ToLower().Contains(value.ToLower()))
+                    {
+                        jobs.Add(row);
+                    }
+                //}
+                
             }
 
             return jobs;
